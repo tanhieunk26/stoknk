@@ -1,5 +1,22 @@
 // API URL
 const apiURL = 'http://fi4.bot-hosting.net:22869/TestHub/stock/bloxfruit';
+const axios = require('axios');
+
+// Định nghĩa User Agent
+const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
+
+// Gửi yêu cầu HTTP với User Agent
+axios.get('https://example.com', {
+  headers: {
+    'User-Agent': userAgent
+  }
+})
+  .then(response => {
+    console.log('Response:', response.data);
+  })
+  .catch(error => {
+    console.log('Error:', error);
+});
 
 // Image URLs for Fruits (Replace with actual URLs from Blox Fruits Wiki)
 const fruitImages = {
@@ -103,9 +120,6 @@ document.getElementById('mirageTab').addEventListener('click', function () {
     document.getElementById('mirageStock').classList.add('active');
     document.getElementById('normalStock').classList.remove('active');
 });
-
-// Fetch stock data when the page loads
-window.onload = fetchAndUpdateStockData;
 
 // Update the stock data every 1 second
 setInterval(fetchAndUpdateStockData, 1000); // Refresh every 1 second
