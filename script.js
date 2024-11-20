@@ -2,7 +2,6 @@
 const apiURL = 'http://fi4.bot-hosting.net:22869/TestHub/stock/bloxfruit';
 
 // Image URLs for Fruits (Replace with actual URLs from Blox Fruits Wiki)
-// Image URLs for Fruits (Replace with actual URLs from Blox Fruits Wiki)
 const fruitImages = {
     "Rocket": "https://static.wikia.nocookie.net/roblox-blox-piece/images/d/d4/RocketFruit.png/",
     "Spin": "https://static.wikia.nocookie.net/roblox-blox-piece/images/d/dc/SpinFruit.png/",
@@ -104,6 +103,9 @@ document.getElementById('mirageTab').addEventListener('click', function () {
     document.getElementById('mirageStock').classList.add('active');
     document.getElementById('normalStock').classList.remove('active');
 });
+
+// Fetch stock data when the page loads
+window.onload = fetchAndUpdateStockData;
 
 // Update the stock data every 1 second
 setInterval(fetchAndUpdateStockData, 1000); // Refresh every 1 second
