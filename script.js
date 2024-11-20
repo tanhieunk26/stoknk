@@ -1,12 +1,12 @@
 // API URL
-const apiURL = 'http://fi4.bot-hosting.net:22869/TestHub/stock/bloxfruit';
 const axios = require('axios');
+const apiURL = 'http://fi4.bot-hosting.net:22869/TestHub/stock/bloxfruit';
 
 // Định nghĩa User Agent
 const userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36';
 
 // Gửi yêu cầu HTTP với User Agent
-axios.get('https://example.com', {
+axios.get('https://bloxfruitstock.vercel.app/', {
   headers: {
     'User-Agent': userAgent
   }
@@ -86,15 +86,15 @@ function displayStockData(data) {
     const mirageFruitsContainer = document.getElementById('mirageFruits');
 
     // Set countdown text for Normal and Mirage stock
-    normalCountdown.textContent = `Next Stock In: \n ${data.stocks.regular.update_time}`;
-    mirageCountdown.textContent = `Next Stock In: \n ${data.stocks.mirage.update_time}`;
+    normalCountdown.textContent = `Next stock in: ${data.stocks.regular.update_time}`;
+    mirageCountdown.textContent = `Next stock in: ${data.stocks.mirage.update_time}`;
 
     // Display Normal fruits
     normalFruitsContainer.innerHTML = normalStock.map(fruit => {
         return `
             <div class="fruit">
                 <img src="${fruitImages[fruit.name]}" alt="${fruit.name}">
-                <p>${fruit.name}<br>${fruit.money}</p>
+                <p>${fruit.name}<br>$${fruit.money}</p>
             </div>
         `;
     }).join('');
@@ -104,7 +104,7 @@ function displayStockData(data) {
         return `
             <div class="fruit">
                 <img src="${fruitImages[fruit.name]}" alt="${fruit.name}">
-                <p>${fruit.name}<br>${fruit.money}</p>
+                <p>${fruit.name}<br>$${fruit.money}</p>
             </div>
         `;
     }).join('');
