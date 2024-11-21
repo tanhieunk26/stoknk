@@ -3,31 +3,41 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Get the latest Blox Fruits stock updates, including Normal and Mirage fruits. Check real-time stock information, webhook for fruit stocks, and stay updated on the best Blox Fruits in the game.">
+    <meta name="keywords" content="Blox Fruits, Stock Blox Fruits, Webhook Stock Fruits, Stock Fruits, Blox Fruits stock, Normal Fruits, Mirage Fruits, Blox Fruits webhook, real-time stock updates">
+    <meta name="author" content="Your Name or Company">
+    <meta property="og:title" content="Blox Fruits Stock - Real-Time Updates">
+    <meta property="og:description" content="Get real-time updates on Blox Fruits stock, including Normal Fruits and Mirage Fruits. Stay informed with the latest information on fruit availability and stock changes.">
+    <meta property="og:image" content="https://bloxfruitstock.vercel.app/og-image.jpg">
+    <meta property="og:url" content="https://bloxfruitstock.vercel.app/">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Blox Fruits Stock - Real-Time Updates">
+    <meta name="twitter:description" content="Stay updated with the latest stock of Blox Fruits, including normal and mirage fruits. Real-time information for your Blox Fruits game experience.">
+    <meta name="twitter:image" content="https://bloxfruitstock.vercel.app/og-image.jpg">
     <title>Blox Fruits Stock - Naoki</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="container">
-        <div class="header">
-            <button class="tab" id="normalTab">Normal</button>
-            <button class="tab" id="mirageTab">Mirage</button>
+        <div class="buttons">
+            <button id="show-normal">Normal Fruits</button>
+            <button id="show-mirage">Mirage Fruits</button>
         </div>
-        <div class="stock-container">
-            <div id="normalStock" class="stock-box active">
-                <h2>Normal Stock</h2>
-                <div class="countdown" id="normalCountdown">Loading...</div>
-                <div id="normalFruits" class="fruit-list">
-                    <!-- Fruits will be loaded here -->
-                </div>
-            </div>
-            <div id="mirageStock" class="stock-box">
-                <h2>Mirage Stock</h2>
-                <div class="countdown" id="mirageCountdown">Loading...</div>
-                <div id="mirageFruits" class="fruit-list">
-                    <!-- Fruits will be loaded here -->
-                </div>
-            </div>
+        <div class="stock-section" id="normal-stock" class="hidden">
+            <h2>Normal Fruits</h2>
+            <div id="normal-fruits-list"></div>
+            <p class="update-time" id="normal-update-time"></p>
+        </div>
+        <div class="stock-section" id="mirage-stock" class="hidden">
+            <h2>Mirage Fruits</h2>
+            <div id="mirage-fruits-list"></div>
+            <p class="update-time" id="mirage-update-time"></p>
+        </div>
+
+        <!-- Phần Join Discord -->
+        <div class="join-discord">
+            <p>Join our Discord</p>
+            <button onclick="window.location.href='https://discord.gg/naokifamily'">Join Discord</button>
         </div>
     </div>
     <script src="script.js"></script>
